@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const config = require("./config/general.config")
 
 const app = express();
 
 var corsOptions = {
-    origin: "http://localhost:4200" // TODO: Use environment variable
+    origin: config.MULEE_INTERFACE
 };
 app.use(cors(corsOptions));
 
