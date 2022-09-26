@@ -1,0 +1,62 @@
+// Palette Colors
+$primary-1: #082108ff;
+$primary-2: #134c13ff;
+$primary-3: #1d771dff;
+$primary-4: #28a228ff;
+$primary-5: #2db82dff;
+$primary-6: #32cd32ff;
+$primary-7: #53d653ff;
+$primary-8: #74de74ff;
+$primary-9: #acecacff;
+$primary-10: #cdf3cdff;
+
+$primary: $primary-6;
+$primary-dark: $primary-1;
+$primary-bright: $primary-10;
+$primary-h: $primary-7;
+
+// General Colors
+$white: white;
+$black: #333;
+$success: #51a351;
+$error: #bd362f;
+$error-h: #cf635d;
+$info: #2f96b4;
+$warning: #f89406;
+
+// Color Scale
+$scale-14: #1c3585;
+$scale-13: #025395;
+$scale-12: #147b9e;
+$scale-11: #2991b6;
+$scale-10: #1cad86;
+$scale-9: #21bf51;
+$scale-8: #43c620;
+$scale-7: #7bcf22;
+$scale-6: #9fd020;
+$scale-5: #d5cf21;
+$scale-4: #ffbd11;
+$scale-3: #f9a31c;
+$scale-2: #f87e28;
+$scale-1: #be3f08;
+
+// General Classes
+.error {
+  color: $error;
+}
+
+.warning {
+  color: $warning;
+}
+
+.success {
+  color: $success;
+}
+
+.information {
+  color: $info;
+}
+
+.primary {
+  color: $primary;
+}

@@ -1,1 +1,221 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap");
+@import "parameters.scss";
+
+// General
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: $primary-bright;
+}
+
+// Flex
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+// Margins
+.m-0 {
+  margin: 0 !important;
+}
+
+.m-8 {
+  margin: 8px !important;
+}
+
+.m-16 {
+  margin: 16px !important;
+}
+
+.mh-8 {
+  margin: auto 8px !important;
+}
+
+.mh-16 {
+  margin: auto 16px !important;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.mt-32 {
+  margin-top: 32px !important;
+}
+
+.mt-64 {
+  margin-top: 64px !important;
+}
+
+.mr-4 {
+  margin-right: 4px !important;
+}
+
+.mr-8 {
+  margin-right: 8px !important;
+}
+
+.mr-16 {
+  margin-right: 16px !important;
+}
+
+.mr-32 {
+  margin-right: 32px !important;
+}
+
+.ml-4 {
+  margin-left: 4px !important;
+}
+
+.ml-8 {
+  margin-left: 8px !important;
+}
+
+.ml-16 {
+  margin-left: 16px !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-4 {
+  margin-bottom: 4px !important;
+}
+
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+
+.mb-32 {
+  margin-bottom: 32px !important;
+}
+
+.mb-64 {
+  margin-bottom: 64px !important;
+}
+
+// Paddings
+.p-0 {
+  padding: 0;
+}
+
+.p-8 {
+  padding: 8px;
+}
+
+// Modals
+jw-modal {
+  .jw-modal-body {
+    overflow: auto;
+  }
+
+  button {
+    cursor: pointer;
+    padding: 8px !important;
+    margin: 8px !important;
+    width: 100px !important;
+    border: 1px solid;
+    outline: none;
+    transition-duration: 0.2s;
+
+    &.positive {
+      font-weight: bold;
+      color: $white;
+      background-color: $primary;
+      border-color: $primary;
+      border-radius: 10px;
+
+      &:hover {
+        color: $primary;
+        background-color: $primary-h;
+      }
+    }
+
+    &.negative {
+      font-weight: bold;
+      color: $white;
+      background-color: $error;
+      border-color: $error;
+      border-radius: 10px;
+
+      &:hover {
+        color: $error;
+        background-color: $error-h;
+      }
+    }
+
+    &.neutral {
+      color: $black;
+      background-color: $white;
+      border: 1px solid $black;
+      border-radius: 10px;
+
+      &:hover {
+        color: $white;
+        background-color: $black;
+      }
+    }
+  }
+}
+
+// Buttons
+button {
+  white-space: nowrap;
+  cursor: pointer;
+  padding: 8px;
+  margin: 8px;
+  border: 2px solid;
+  outline: none;
+  transition-duration: 0.2s;
+}
+
+button.primary {
+  min-width: 100px;
+}
+
+button.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  margin: 0 4px;
+
+  background-color: $primary-2;
+  border-color: $white;
+  color: $white;
+  font-size: 24px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-3;
+  }
+
+  &:active {
+    background-color: $primary-1;
+    filter: brightness(50%);
+  }
+}
