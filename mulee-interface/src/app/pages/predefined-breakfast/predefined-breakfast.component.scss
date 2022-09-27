@@ -26,6 +26,9 @@
   // height: 160px;
   width: 20vw;
   height: 20vh;
+  min-height: 140px;
+  min-width: 200px;
+  max-height: 200px;
 
   .content {
     width: 60%;
@@ -55,6 +58,9 @@
   width: 20vw;
   height: 20vh;
   margin: 0 60px 60px 0;
+  min-height: 140px;
+  min-width: 200px;
+  max-height: 200px;
 
   display: flex;
   flex-direction: column;
