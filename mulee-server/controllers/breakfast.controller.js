@@ -2,6 +2,7 @@ const data = require("../data/data");
 const arduino = require("../services/arduino.service");
 
 exports.predefinedBreakfastGetAll = (req, res) => {
+    arduino.writeData("Test Data");
 
     data.getBreakfastData()
         .then(data => {
