@@ -16,10 +16,13 @@
 }
 
 .content {
-  display: flex;
+  height: calc(100% - 144px);
   margin: 32px auto 32px;
   padding: 0 16px;
+
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   overflow: auto;
 }
 
