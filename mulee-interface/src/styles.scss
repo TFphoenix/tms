@@ -224,3 +224,25 @@ button.icon {
     scale: 90%;
   }
 }
+
+// Interactable Animation
+.interactable-bright {
+  background-color: $white;
+  transition-duration: 0.2s;
+  border: 1px solid $primary-5;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-2;
+    border-color: $primary-8;
+    background-color: $primary-bright;
+  }
+
+  &:active {
+    filter: brightness(70%);
+    scale: 95%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}

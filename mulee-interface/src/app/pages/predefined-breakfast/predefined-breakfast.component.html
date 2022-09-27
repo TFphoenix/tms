@@ -1,6 +1,9 @@
 <div class="container">
   <div class="cards-grid">
-    <div class="card" *ngFor="let breakfast of breakfastOptions">
+    <div
+      class="card interactable-bright"
+      *ngFor="let breakfast of breakfastOptions"
+    >
       <div class="content">
         <h2 class="mb-16">FRUITY LOOP</h2>
         <p>Blueberries,<br />Cranberries,<br />Classic Musli</p>
@@ -16,8 +19,12 @@
       </div>
     </div>
     <div class="buttons-container">
-      <button><i class="fa fa-wrench mr-8"></i>CUSTOMIZE</button>
-      <button><i class="fa fa-fire mr-8"></i>EXPLORE</button>
+      <button class="interactable-bright">
+        <i class="fa fa-wrench mr-8"></i>CUSTOMIZE
+      </button>
+      <button class="interactable-bright">
+        <i class="fa fa-fire mr-8"></i>EXPLORE
+      </button>
     </div>
   </div>
 </div>
