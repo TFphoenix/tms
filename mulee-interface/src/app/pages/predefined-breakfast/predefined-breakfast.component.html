@@ -22,9 +22,13 @@
       <button class="interactable-bright">
         <i class="fa fa-wrench mr-8"></i>CUSTOMIZE
       </button>
-      <button class="interactable-bright">
+      <button (click)="openModal('details-modal')" class="interactable-bright">
         <i class="fa fa-fire mr-8"></i>EXPLORE
       </button>
     </div>
   </div>
 </div>
+
+<jw-modal id="details-modal">
+  <button (click)="cancelModal('details-modal')">CANCEL</button>
+</jw-modal>
