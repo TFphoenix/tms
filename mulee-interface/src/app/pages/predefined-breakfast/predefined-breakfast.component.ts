@@ -24,7 +24,7 @@ export class PredefinedBreakfastComponent implements OnInit {
         this.breakfastOptions = values;
       },
       error: (err) => {
-        this._toastr.error(err, 'Error fetching breakfast options');
+        this._toastr.error(err.message, 'Error fetching breakfast options');
       },
     });
   }

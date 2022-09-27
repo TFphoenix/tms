@@ -13,25 +13,16 @@ port.pipe(parser);
 // Read the data from the serial port
 parser.on("data", (line) => console.log(line));
 
-// Open errors will be emitted as an error event
-// port.on('error', function (err) {
-//     console.log('Error: ', err.message)
-// })
-
-
-
-// Write the data to the serial port
-setInterval(function () {
-
+// Write dummy data to the serial port
+function writeFoo() {
     port.write("THIS IS MY MESSAGE\n", function (err) {
         if (err) {
             console.log(`Error: ${err}`);
         }
     });
     console.log("Message sent");
+}
 
-}, 2000);
-
-
+setTimeout(writeFoo, 3000);
 
 
