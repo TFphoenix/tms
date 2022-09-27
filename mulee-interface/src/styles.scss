@@ -220,6 +220,7 @@ button.icon {
 
   &:active {
     background-color: $primary-1;
-    filter: brightness(50%);
+    filter: brightness(70%);
+    scale: 90%;
   }
 }
