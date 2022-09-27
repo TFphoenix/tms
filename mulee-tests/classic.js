@@ -19,19 +19,19 @@ parser.on("data", (line) => console.log(line));
 // })
 
 
-function burst_send() {
-    // Write the data to the serial port
-    setInterval(function () {
 
-        port.write("THIS IS MY MESSAGE\n", function (err) {
-            console.log(err);
-        });
-        console.log("Message sent");
+// Write the data to the serial port
+setInterval(function () {
 
-    }, 3000);
-}
+    port.write("THIS IS MY MESSAGE\n", function (err) {
+        if (err) {
+            console.log(`Error: ${err}`);
+        }
+    });
+    console.log("Message sent");
 
-setTimeout(burst_send, 1000);
+}, 2000);
+
 
 
 
