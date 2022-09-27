@@ -1,0 +1,17 @@
+{
+  "name": "arduino-comm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "classic": "node classic.js",
+    "j5": "node j5.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@serialport/parser-readline": "^8.0.6",
+    "johnny-five": "^2.1.0",
+    "serialport": "^8.0.7"
+  }
+}

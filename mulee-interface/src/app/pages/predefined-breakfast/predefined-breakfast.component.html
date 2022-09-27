@@ -3,6 +3,7 @@
     <div
       class="card interactable-bright"
       *ngFor="let breakfast of breakfastOptions"
+      (click)="openModal('details-modal')"
     >
       <div class="content">
         <h2 class="mb-16">FRUITY LOOP</h2>
@@ -19,10 +20,10 @@
       </div>
     </div>
     <div class="buttons-container">
-      <button class="interactable-bright">
+      <button routerLink="/breakfast/customize" class="interactable-bright">
         <i class="fa fa-wrench mr-8"></i>CUSTOMIZE
       </button>
-      <button (click)="openModal('details-modal')" class="interactable-bright">
+      <button routerLink="/breakfast/explore" class="interactable-bright">
         <i class="fa fa-fire mr-8"></i>EXPLORE
       </button>
     </div>
