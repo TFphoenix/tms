@@ -1,12 +1,10 @@
 export class Ingredient {
   name?: string;
-  calories?: number;
+  calories?: number; // per 100 g
   nutritionalValues: NutritionalValue[] = [];
 }
 
 export class NutritionalValue {
   name?: string;
-  quantity?: number;
   percentage?: number;
-  mu?: string;
 }

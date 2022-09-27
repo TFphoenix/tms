@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const config = require("./config/general.config")
+const data = require("./data/data")
 
 const app = express();
 
@@ -20,8 +21,11 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to MuLee Server application." });
 });
 
+// initialize data
+data.initializeData();
+
 // entity routes
-// require("./routes/user.routes")(app)
+require("./routes/breakfast.routes")(app)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

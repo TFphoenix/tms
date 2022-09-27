@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Healthy Mix",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Simplicity Mix",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Fruity Loop",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Cinni Ultra",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Donuts Bowl",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Sweet Treat",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Power Mix",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  },
+  {
+    "name": "Active Day Mix",
+    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+  }
+]
