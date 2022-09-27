@@ -2,7 +2,7 @@
   <div class="cards-grid">
     <div
       class="card interactable-bright"
-      *ngFor="let breakfast of breakfastOptions"
+      *ngFor="let breakfast of breakfastOptions; let idx = index"
       (click)="openModal('details-modal')"
     >
       <div class="content">
@@ -11,7 +11,10 @@
       </div>
 
       <div class="art">
-        <img src="../../../assets/cereals3.png" alt="" />
+        <img
+          [src]="'../../../assets/breakfast/cereals' + (idx + 1) + '.png'"
+          alt=""
+        />
       </div>
     </div>
     <div class="buttons-container">
