@@ -14,6 +14,6 @@ export class ApiService {
 
   // Predefined Breakfast Recipes
   getPredefinedBreakfast() {
-    return this._http.get(this._breakfast) as Observable<Breakfast>;
+    return this._http.get(this._breakfast) as Observable<Breakfast[]>;
   }
 }

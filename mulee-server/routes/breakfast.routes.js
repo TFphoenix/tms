@@ -3,11 +3,11 @@ module.exports = app => {
 
     var router = require("express").Router();
 
+    // Get all predefined breakfast recipes
+    router.get("/", breakfast.predefinedBreakfastGetAll);
+
     // Create a customized breakfast recipe
     // router.post("/", progress.create); // TODO
-
-    // Get all predefined breakfast recipes
-    // router.get("/", progress.findAll); // TODO
 
     app.use('/breakfast', router);
 }

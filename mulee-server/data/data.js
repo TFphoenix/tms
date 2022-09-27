@@ -1,26 +1,30 @@
 const fs = require('fs');
 const path = require("path");
-// const util = require('util')
 
-function initializeData() {
-    console.log("Initializing data...");
+function getBreakfastData() {
+    return new Promise((resolve, reject) => {
+        const ingredientsPromise = fs.promises.readFile(path.resolve(__dirname, './ingredients.json'));
+        const breakfastPromise = fs.promises.readFile(path.resolve(__dirname, './breakfast.json'));
 
-    const ingredientsJSON = fs.readFileSync(path.resolve(__dirname, './ingredients.json'));
-    const breakfastJSON = fs.readFileSync(path.resolve(__dirname, './breakfast.json'));
+        Promise.all([ingredientsPromise, breakfastPromise])
+            .then(values => {
+                let ingredientsData = JSON.parse(values[0]);
+                let breakfastData = JSON.parse(values[1]);
 
-    const ingredientsData = JSON.parse(ingredientsJSON);
-    const breakfastData = JSON.parse(breakfastJSON)
+                breakfastData.forEach(breakfast => {
+                    breakfast.ingredients.forEach((value, index, array) => {
+                        array[index] = ingredientsData.find(ingredient => ingredient.name === value);
+                    });
+                });
 
-    breakfastData.forEach(breakfast => {
-        breakfast.ingredients.forEach((value, index, array) => {
-            array[index] = ingredientsData.find(ingredient => ingredient.name === value);
-        });
+                return resolve(breakfastData);
+            })
+            .catch(err => {
+                reject(err);
+            });
     });
-
-    // console.log(util.inspect(breakfastData, false, null, true))
-    console.log("Data initialized.");
 }
 
 module.exports = {
-    initializeData
+    getBreakfastData
 }
