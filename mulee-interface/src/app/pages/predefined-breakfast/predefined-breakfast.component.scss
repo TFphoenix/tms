@@ -75,4 +75,66 @@
 
 // Details Modal
 #details-modal {
+  color: $primary-2;
+
+  .information-row {
+    margin-bottom: 32px;
+
+    .breakfast-title {
+      margin: 0 0 16px 16px;
+      font-size: 3em;
+    }
+
+    .breakfast-image {
+      width: 16vw;
+      margin-right: 0 16px;
+    }
+
+    .ingredients-icons {
+      .ingredient-icon {
+        align-items: center;
+        justify-content: end;
+        margin: 0 16px;
+
+        img {
+          width: 6vw;
+          margin-bottom: 8px;
+        }
+        h3 {
+          font-size: 1.5em;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+
+  .details-row {
+    .details-section {
+      border-left: 4px solid $primary-2;
+      height: 500px;
+      padding-left: 8px;
+      margin: 0 16px;
+
+      &-title {
+        font-size: 1.7em;
+        font-weight: bold;
+      }
+
+      .nutritional-value {
+        padding: 8px;
+        margin-left: -8px;
+        font-size: 1.2em;
+        justify-content: space-between;
+        min-width: 320px;
+
+        &:nth-child(even) {
+          background-color: $primary-back2;
+        }
+
+        &:nth-child(odd) {
+          background-color: $primary-back1;
+        }
+      }
+    }
+  }
 }

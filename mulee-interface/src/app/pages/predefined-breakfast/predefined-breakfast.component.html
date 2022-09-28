@@ -3,7 +3,7 @@
     <div
       class="card interactable-bright"
       *ngFor="let breakfast of breakfastOptions; let idx = index"
-      (click)="openModal('details-modal')"
+      (click)="selectedOption = breakfast; openModal('details-modal')"
     >
       <div class="content">
         <h2 class="mb-16">{{ breakfast?.name ?? "NAME" }}</h2>
@@ -35,19 +35,44 @@
 <jw-modal id="details-modal">
   <!-- Information Row -->
   <div class="information-row flex-row">
-    <img src="../../../assets/breakfast/cereals1.png" width="160vw" />
+    <img class="breakfast-image" src="../../../assets/breakfast/cereals1.png" />
 
     <div class="flex-col">
-      <h3>HEALTHY MIX</h3>
-      <div class="flex-row"></div>
+      <h1 class="breakfast-title">HEALTHY MIX</h1>
+      <div class="ingredients-icons flex-row">
+        <div
+          class="ingredient-icon flex-col"
+          *ngFor="let ingredient of selectedOption?.ingredients"
+        >
+          <img
+            [src]="'../../../assets/ingredient/' + ingredient.name + '.png'"
+          />
+          <h3>{{ ingredient.name }}</h3>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Details Row -->
-  <div class="flex-row">
-    <div class="flex-col">Nutritional Values</div>
-    <div class="flex-col">Allergens</div>
-    <div class="flex-col">Milk Type</div>
+  <div class="details-row flex-row">
+    <div class="details-section flex-col">
+      <h2 class="details-section-title">Nutritional Values</h2>
+      <div class="nutritional-values flex-col">
+        <div class="nutritional-value flex-row">
+          <span>Calories</span>
+          <span>200 kcal</span>
+        </div>
+
+        <span class="nutritional-value">Sugar</span>
+        <span class="nutritional-value">Fat</span>
+      </div>
+    </div>
+    <div class="details-section flex-col">
+      <h2 class="details-section-title">Allergens</h2>
+    </div>
+    <div class="details-section flex-col">
+      <h2 class="details-section-title">Milk Type</h2>
+    </div>
     <div class="flex-col">
       <button (click)="closeModal('details-modal')">RETURN</button>
       <button (click)="cancelModal('details-modal')">START</button>

@@ -1,34 +1,42 @@
 [
   {
     "name": "Healthy Mix",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Simplicity Mix",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Fruity Loop",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Cinni Ultra",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Donuts Bowl",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Sweet Treat",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Power Mix",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Active Day Mix",
-    "ingredients": ["Blueberries", "Cranberries", "Classic Musli"]
+    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "allergens": ["Gluten", "Milk", "Peanuts"]
   }
 ]
