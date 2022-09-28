@@ -4,6 +4,7 @@ import { Breakfast } from 'src/app/models/breakfast.model';
 import { Ingredient, NutritionalValue } from 'src/app/models/ingredient.model';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ModalService } from 'src/app/shared/modal/modal.service';
+import { groupBy, sumBy } from 'lodash';
 
 @Component({
   selector: 'app-predefined-breakfast',
@@ -60,20 +61,16 @@ export class PredefinedBreakfastComponent implements OnInit {
       });
     });
 
-    let a = nutritionalValues.reduce((acc: NutritionalValue[], x) => {
-      if (acc.find((y) => y.name === x.name)) return acc.concat([]);
-      const totalPercentage = nutritionalValues
-        .filter((y) => y.name === x.name)
-        .map((y) => y.percentage)
-        .reduce((a, b) => (a ?? 0) + (b ?? 0), 0);
-      return acc.concat([
-        {
-          name: x.name,
-          percentage: totalPercentage,
-        },
-      ]);
-    }, []);
+    const unique = groupBy(nutritionalValues, (i) => i.name);
 
-    return nutritionalValues;
+    const result = Object.keys(unique).map((key) => {
+      const first = unique[key][0];
+      return {
+        ...first,
+        percentage: sumBy(unique[key], (i) => i.percentage ?? 0),
+      };
+    });
+
+    return result;
   }
 }

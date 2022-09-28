@@ -79,6 +79,8 @@
 
   .information-row {
     margin-bottom: 32px;
+    justify-content: space-between;
+    width: 100%;
 
     .breakfast-title {
       margin: 0 0 16px 16px;
@@ -111,7 +113,6 @@
   .details-row {
     .details-section {
       border-left: 4px solid $primary-2;
-      height: 500px;
       padding-left: 8px;
       margin: 0 16px;
 

@@ -139,8 +139,16 @@ body {
 
 // Modals
 jw-modal {
+  .jw-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .jw-modal-body {
     overflow: auto;
+    border-radius: 8px;
+    padding: 32px !important;
   }
 
   button {
