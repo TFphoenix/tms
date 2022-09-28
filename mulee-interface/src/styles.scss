@@ -23,6 +23,10 @@ app-predefined-breakfast {
   height: 100%;
 }
 
+app-customize-breakfast {
+  height: 100%;
+}
+
 // Flex
 .flex {
   display: flex;
@@ -42,6 +46,12 @@ app-predefined-breakfast {
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 // Margins

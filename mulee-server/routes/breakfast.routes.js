@@ -12,6 +12,9 @@ module.exports = app => {
     // Get all liquid types
     router.get("/liquids", breakfast.liquidsGetAll);
 
+    // Get all ingredients
+    router.get("/ingredients", breakfast.ingredientsGetAll);
+
     // Create a customized breakfast recipe
     // router.post("/customized", progress.create); // TODO
 

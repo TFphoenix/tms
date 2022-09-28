@@ -73,10 +73,7 @@ export class PredefinedBreakfastComponent implements OnInit {
     }
 
     this._api
-      .postPredefinedBreakfast(
-        this.selectedOption,
-        this.liquids[this.selectedLiquidIndex]
-      )
+      .postPredefinedBreakfast(this.selectedOption, this.selectedLiquid ?? '')
       .subscribe({
         next: (values) => {
           this._toastr.success(

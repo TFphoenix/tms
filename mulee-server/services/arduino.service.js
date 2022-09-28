@@ -20,7 +20,7 @@ logInfo('Initializing Arduino service...');
 // Serial port definition
 const port = new SerialPort({
     path: ARDUINO_PORT,
-    baudRate: ARDUINO_BAUD_RATE,
+    baudRate: ARDUINO_BAUD_RATE
 });
 
 // Serial port parser
@@ -32,12 +32,20 @@ parser.on("data", function (line) {
 });
 
 // Errors handle
+let lastError = undefined;
 port.on('error', function (err) {
     logError(err.message);
+    lastError = err;
+});
+
+// Open handle
+port.on('open', function (err) {
+    logSuccess('Arduino service opened');
 });
 
 setTimeout(() => {
-    logSuccess('Arduino service initialized');
+    if (!lastError)
+        logSuccess('Arduino service initialized');
 }, 3000);
 
 // Service functions

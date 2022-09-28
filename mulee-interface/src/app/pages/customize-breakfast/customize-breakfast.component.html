@@ -1,1 +1,29 @@
-<p>customize-breakfast works!</p>
+<form class="flex-col-center" (ngSubmit)="prepareCustomizedBreakfast()">
+  <!-- Ingredients -->
+  <h1>Choose preferred ingredients</h1>
+  <div *ngFor="let ingredient of ingredients">
+    {{ ingredient.name }}
+  </div>
+
+  <!-- Liquids -->
+  <h1>Choose preferred milk</h1>
+  <div *ngFor="let liquid of liquids">
+    {{ liquid }}
+  </div>
+
+  <!-- Buttons -->
+  <button
+    type="submit"
+    routerLink="/breakfast/predefined"
+    class="action-button interactable-bright"
+  >
+    <i class="fa fa-spoon mr-8"></i>PREPARE
+  </button>
+  <button
+    type="button"
+    routerLink="/breakfast/predefined"
+    class="action-button interactable-bright"
+  >
+    <i class="fa fa-arrow-left mr-8"></i>BACK
+  </button>
+</form>

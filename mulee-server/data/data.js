@@ -40,6 +40,21 @@ exports.getLiquids = () => {
     });
 };
 
+exports.getIngredients = () => {
+    return new Promise((resolve, reject) => {
+        const ingredientsPromise = fs.promises.readFile(path.resolve(__dirname, './ingredients.json'));
+
+        Promise.resolve(ingredientsPromise)
+            .then(values => {
+                let ingredientsData = JSON.parse(values);
+                return resolve(ingredientsData);
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+};
+
 exports.getArduino = () => {
     return new Promise((resolve, reject) => {
         const arduinoPromise = fs.promises.readFile(path.resolve(__dirname, './arduino.json'));

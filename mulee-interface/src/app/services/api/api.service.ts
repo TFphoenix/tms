@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Breakfast } from 'src/app/models/breakfast.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Ingredient } from 'src/app/models/ingredient.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,13 @@ export class ApiService {
   // Available Liquids
   getLiquids() {
     return this._http.get(`${this._breakfast}/liquids`) as Observable<string[]>;
+  }
+
+  // Available Ingredients
+  getIngredients() {
+    return this._http.get(`${this._breakfast}/ingredients`) as Observable<
+      Ingredient[]
+    >;
   }
 
   // Start preparing predefined Breakfast Recipe

@@ -19,11 +19,10 @@ exports.predefinedBreakfastPrepare = (req, res) => {
         liquid: req.body.liquid
     };
 
-    Promise.all([data.getPredefinedBreakfast, data.getArduino])
+    Promise.all([data.getArduino, data.getPredefinedBreakfast])
         .then(values => {
-
-            let arduinoCommand = toArduinoCommand(arduino,)
-            arduino.writeData("Test Data");
+            let arduinoCommand = toArduinoCommand(values[0], values[1], breakfast.name, breakfast.liquid);
+            arduino.writeData(arduinoCommand);
             res.send(breakfast);
         })
         .catch(err => {
@@ -45,6 +44,19 @@ exports.liquidsGetAll = (req, res) => {
         });
 }
 
-function toArduinoCommand(arduino, breakfastData, breakfastName, breakfastLiquid) {
+exports.ingredientsGetAll = (req, res) => {
+    data.getIngredients()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Unknown error occurred"
+            });
+        });
+}
 
+function toArduinoCommand(arduinoData, breakfastData, breakfastName, breakfastLiquid) {
+    // TODO: Implement Arduino Command Conversion function
+    return "Test Data";
 }
