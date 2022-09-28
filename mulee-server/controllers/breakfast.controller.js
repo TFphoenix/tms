@@ -19,9 +19,10 @@ exports.predefinedBreakfastPrepare = (req, res) => {
         liquid: req.body.liquid
     };
 
-    data.getPredefinedBreakfast()
-        .then(data => {
-            // TODO: Convert to Arduino Commands
+    Promise.all([data.getPredefinedBreakfast, data.getArduino])
+        .then(values => {
+
+            let arduinoCommand = toArduinoCommand(arduino,)
             arduino.writeData("Test Data");
             res.send(breakfast);
         })
@@ -42,4 +43,8 @@ exports.liquidsGetAll = (req, res) => {
                 message: err.message || "Unknown error occurred"
             });
         });
+}
+
+function toArduinoCommand(arduino, breakfastData, breakfastName, breakfastLiquid) {
+
 }
