@@ -6,8 +6,12 @@
       (click)="openModal('details-modal')"
     >
       <div class="content">
-        <h2 class="mb-16">FRUITY LOOP</h2>
-        <p>Blueberries,<br />Cranberries,<br />Classic Musli</p>
+        <h2 class="mb-16">{{ breakfast?.name ?? "NAME" }}</h2>
+        <p>
+          <span *ngFor="let ingredient of breakfast?.ingredients">
+            {{ ingredient.name }},<br />
+          </span>
+        </p>
       </div>
 
       <div class="art">
@@ -29,5 +33,24 @@
 </div>
 
 <jw-modal id="details-modal">
-  <button (click)="cancelModal('details-modal')">CANCEL</button>
+  <!-- Information Row -->
+  <div class="information-row flex-row">
+    <img src="../../../assets/breakfast/cereals1.png" width="160vw" />
+
+    <div class="flex-col">
+      <h3>HEALTHY MIX</h3>
+      <div class="flex-row"></div>
+    </div>
+  </div>
+
+  <!-- Details Row -->
+  <div class="flex-row">
+    <div class="flex-col">Nutritional Values</div>
+    <div class="flex-col">Allergens</div>
+    <div class="flex-col">Milk Type</div>
+    <div class="flex-col">
+      <button (click)="closeModal('details-modal')">RETURN</button>
+      <button (click)="cancelModal('details-modal')">START</button>
+    </div>
+  </div>
 </jw-modal>

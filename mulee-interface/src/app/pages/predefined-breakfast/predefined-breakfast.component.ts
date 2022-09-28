@@ -11,6 +11,7 @@ import { ModalService } from 'src/app/shared/modal/modal.service';
 })
 export class PredefinedBreakfastComponent implements OnInit {
   breakfastOptions: Breakfast[] = Array<Breakfast>(8);
+  selectedOption?: Breakfast;
 
   constructor(
     private readonly _modal: ModalService,
