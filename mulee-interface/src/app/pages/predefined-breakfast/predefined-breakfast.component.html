@@ -56,23 +56,35 @@
   <!-- Details Row -->
   <div class="details-row flex-row">
     <div class="details-section flex-col">
-      <h2 class="details-section-title">Nutritional Values</h2>
+      <h2 class="details-section-title">Nutritional Values (per 100 g)</h2>
+
+      <!-- Nutritional Values -->
       <div class="nutritional-values flex-col">
         <div class="nutritional-value flex-row">
           <span>Calories</span>
-          <span>200 kcal</span>
+          <span>{{ getBreakfastCalories(selectedOption) }} kcal</span>
         </div>
-
-        <span class="nutritional-value">Sugar</span>
-        <span class="nutritional-value">Fat</span>
+        <div
+          *ngFor="let value of getBreakfastNutritionalValues(selectedOption)"
+          class="nutritional-value flex-row"
+        >
+          <span>{{ value.name }}</span>
+          <span>{{ (value.percentage ?? 0) * 100 | number }} g</span>
+        </div>
       </div>
     </div>
+
+    <!-- Allergens -->
     <div class="details-section flex-col">
       <h2 class="details-section-title">Allergens</h2>
     </div>
+
+    <!-- Milk Type -->
     <div class="details-section flex-col">
       <h2 class="details-section-title">Milk Type</h2>
     </div>
+
+    <!-- Buttons -->
     <div class="flex-col">
       <button (click)="closeModal('details-modal')">RETURN</button>
       <button (click)="cancelModal('details-modal')">START</button>
