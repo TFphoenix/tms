@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require("path");
 
-exports.getBreakfastData = () => {
+exports.getPredefinedBreakfast = () => {
     return new Promise((resolve, reject) => {
         const ingredientsPromise = fs.promises.readFile(path.resolve(__dirname, './ingredients.json'));
         const breakfastPromise = fs.promises.readFile(path.resolve(__dirname, './breakfast.json'));
@@ -39,3 +39,18 @@ exports.getLiquids = () => {
             });
     });
 };
+
+exports.getArduino = () => {
+    return new Promise((resolve, reject) => {
+        const arduinoPromise = fs.promises.readFile(path.resolve(__dirname, './arduino.json'));
+
+        Promise.resolve(arduinoPromise)
+            .then(values => {
+                let arduinoData = JSON.parse(values);
+                return resolve(arduinoData);
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+}

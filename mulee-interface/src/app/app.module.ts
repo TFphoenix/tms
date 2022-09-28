@@ -11,6 +11,7 @@ import { CustomizeBreakfastComponent } from './pages/customize-breakfast/customi
 import { SharedModule } from './shared/shared.module';
 import { ExploreBreakfastComponent } from './pages/explore-breakfast/explore-breakfast.component';
 import { ApiService } from './services/api/api.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ApiService } from './services/api/api.service';
     ExploreBreakfastComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     SharedModule,

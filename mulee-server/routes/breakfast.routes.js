@@ -6,11 +6,14 @@ module.exports = app => {
     // Get all predefined breakfast recipes
     router.get("/predefined", breakfast.predefinedBreakfastGetAll);
 
+    // Start preparing predefined recipe
+    router.post("/predefined", breakfast.predefinedBreakfastPrepare);
+
     // Get all liquid types
     router.get("/liquids", breakfast.liquidsGetAll);
 
     // Create a customized breakfast recipe
-    // router.post("/", progress.create); // TODO
+    // router.post("/customized", progress.create); // TODO
 
     app.use('/breakfast', router);
 }

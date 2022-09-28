@@ -23,4 +23,12 @@ export class ApiService {
   getLiquids() {
     return this._http.get(`${this._breakfast}/liquids`) as Observable<string[]>;
   }
+
+  // Start preparing predefined Breakfast Recipe
+  postPredefinedBreakfast(breakfast: Breakfast, liquid: string) {
+    return this._http.post(`${this._breakfast}/predefined`, {
+      name: breakfast.name,
+      liquid: liquid,
+    });
+  }
 }

@@ -65,7 +65,7 @@
   </div>
 
   <!-- Details Row -->
-  <div class="details-row flex-row">
+  <form class="details-row flex-row" (ngSubmit)="closeModal('details-modal')">
     <div class="details-section flex-col">
       <h2 class="details-section-title ml-0">Nutritional Values (100 g)</h2>
 
@@ -104,7 +104,13 @@
       <h2 class="details-section-title">Milk Type</h2>
       <div class="liquids">
         <div *ngFor="let liquid of liquids" class="liquid flex-row">
-          <input type="radio" [id]="liquid" name="fav_language" value="HTML" />
+          <input
+            type="radio"
+            [id]="liquid"
+            name="fav_language"
+            [value]="liquid"
+            [(ngModel)]="selectedLiquid"
+          />
           <label [for]="liquid">{{ liquid }}</label>
         </div>
       </div>
@@ -112,17 +118,17 @@
 
     <!-- Buttons -->
     <div class="details-buttons flex-col">
-      <button class="interactable-bright" (click)="closeModal('details-modal')">
-        <i class="fa fa-arrow-left"></i>
-        RETURN
-      </button>
       <button
         class="interactable-bright"
         (click)="cancelModal('details-modal')"
       >
+        <i class="fa fa-arrow-left"></i>
+        RETURN
+      </button>
+      <button type="submit" class="interactable-bright">
         <i class="fa fa-play"></i>
         START
       </button>
     </div>
-  </div>
+  </form>
 </jw-modal>

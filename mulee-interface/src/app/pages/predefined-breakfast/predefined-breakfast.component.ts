@@ -16,6 +16,7 @@ export class PredefinedBreakfastComponent implements OnInit {
   selectedOption?: Breakfast;
   liquids: string[] = [];
   selectedLiquidIndex?: number;
+  selectedLiquid?: string;
 
   constructor(
     private readonly _modal: ModalService,
@@ -37,6 +38,7 @@ export class PredefinedBreakfastComponent implements OnInit {
       next: (values) => {
         this.liquids = values;
         this.selectedLiquidIndex = 0;
+        this.selectedLiquid = this.liquids[this.selectedLiquidIndex];
       },
       error: (err) => {
         this._toastr.error(err.message, 'Error fetching liquids');
@@ -53,7 +55,41 @@ export class PredefinedBreakfastComponent implements OnInit {
   }
 
   closeModal(id: string) {
+    switch (id) {
+      case 'details-modal':
+        this.prepareSelectedBreakfast();
+        break;
+      default:
+        break;
+    }
+
     this._modal.close(id);
+  }
+
+  prepareSelectedBreakfast() {
+    if (!this.selectedOption || this.selectedLiquidIndex === undefined) {
+      this._toastr.error('Wrong selected breakfast/liquid', 'Selection Error');
+      return;
+    }
+
+    this._api
+      .postPredefinedBreakfast(
+        this.selectedOption,
+        this.liquids[this.selectedLiquidIndex]
+      )
+      .subscribe({
+        next: (values) => {
+          this._toastr.success(
+            'Preparation successfully started',
+            'Preparation Start'
+          );
+          console.log(values);
+        },
+        error: (err) => {
+          this._toastr.error('Preparation error occured', 'Preparation Error');
+          console.error(err);
+        },
+      });
   }
 
   getBreakfastCalories(breakfast?: Breakfast): number {
