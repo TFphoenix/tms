@@ -18,6 +18,11 @@ body {
   background-color: $primary-background;
 }
 
+// Specific
+app-predefined-breakfast {
+  height: 100%;
+}
+
 // Flex
 .flex {
   display: flex;
@@ -149,6 +154,7 @@ jw-modal {
     overflow: auto;
     border-radius: 8px;
     padding: 32px !important;
+    max-height: 95%;
   }
 
   button {

@@ -13,7 +13,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 1340px;
+  max-width: 80%;
+  max-height: 100%;
 }
 
 .card {
@@ -77,9 +78,12 @@
 #details-modal {
   color: $primary-2;
 
+  // Information Row
   .information-row {
     margin-bottom: 32px;
+    margin-top: 16px;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
 
     .breakfast-title {
@@ -109,11 +113,16 @@
     }
   }
 
+  // Details Row
   .details-row {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+
     .details-section {
       border-left: 4px solid $primary-2;
       padding-left: 8px;
-      margin: 0 16px;
+      margin: 16px;
 
       &-title {
         font-size: 1.6em;
@@ -176,7 +185,7 @@
     }
 
     .details-buttons {
-      margin-left: 64px;
+      margin: 8px 16px 8px 64px;
       button {
         font-size: 1.5em;
         padding: 16px;
