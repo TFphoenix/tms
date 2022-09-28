@@ -153,9 +153,8 @@ jw-modal {
 
   button {
     cursor: pointer;
-    padding: 8px !important;
-    margin: 8px !important;
-    width: 100px !important;
+    padding: 8px;
+    margin: 8px;
     border: 1px solid;
     outline: none;
     transition-duration: 0.2s;
@@ -257,5 +256,37 @@ button.icon {
     filter: brightness(70%);
     scale: 95%;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  }
+}
+
+// Radio Buttons
+input[type="radio"] {
+  appearance: none;
+  cursor: pointer;
+
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+
+  border: 2px solid #999;
+  transition: 0.2s all linear;
+  margin-right: 5px;
+
+  position: relative;
+  top: 4px;
+
+  &:checked {
+    border: 8px solid $primary-2;
+
+    & + label {
+      border: 2px solid $primary-2;
+      border-radius: 8px;
+    }
+  }
+
+  & + label {
+    padding: 4px;
+    border: 2px solid transparent;
+    cursor: pointer;
   }
 }

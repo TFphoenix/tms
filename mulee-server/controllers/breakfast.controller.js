@@ -14,3 +14,15 @@ exports.predefinedBreakfastGetAll = (req, res) => {
             });
         });
 };
+
+exports.liquidsGetAll = (req, res) => {
+    data.getLiquids()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Unknown error occurred"
+            });
+        });
+}

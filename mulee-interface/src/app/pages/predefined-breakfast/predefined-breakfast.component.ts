@@ -14,6 +14,8 @@ import { groupBy, sumBy } from 'lodash';
 export class PredefinedBreakfastComponent implements OnInit {
   breakfastOptions: Breakfast[] = Array<Breakfast>(8);
   selectedOption?: Breakfast;
+  liquids: string[] = [];
+  selectedLiquidIndex?: number;
 
   constructor(
     private readonly _modal: ModalService,
@@ -28,6 +30,16 @@ export class PredefinedBreakfastComponent implements OnInit {
       },
       error: (err) => {
         this._toastr.error(err.message, 'Error fetching breakfast options');
+      },
+    });
+
+    this._api.getLiquids().subscribe({
+      next: (values) => {
+        this.liquids = values;
+        this.selectedLiquidIndex = 0;
+      },
+      error: (err) => {
+        this._toastr.error(err.message, 'Error fetching liquids');
       },
     });
   }
@@ -67,7 +79,9 @@ export class PredefinedBreakfastComponent implements OnInit {
       const first = unique[key][0];
       return {
         ...first,
-        percentage: sumBy(unique[key], (i) => i.percentage ?? 0),
+        percentage:
+          sumBy(unique[key], (i) => i.percentage ?? 0) /
+          Object.keys(unique).length,
       };
     });
 

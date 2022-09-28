@@ -79,7 +79,7 @@
 
   .information-row {
     margin-bottom: 32px;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 
     .breakfast-title {
@@ -88,8 +88,7 @@
     }
 
     .breakfast-image {
-      width: 16vw;
-      margin-right: 0 16px;
+      width: 16em;
     }
 
     .ingredients-icons {
@@ -99,7 +98,7 @@
         margin: 0 16px;
 
         img {
-          width: 6vw;
+          width: 6em;
           margin-bottom: 8px;
         }
         h3 {
@@ -119,7 +118,7 @@
       &-title {
         font-size: 1.6em;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 16px;
       }
 
       .nutritional-value {
@@ -135,6 +134,56 @@
 
         &:nth-child(odd) {
           background-color: $primary-back1;
+        }
+      }
+
+      .allergens {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-grow: 1;
+        margin-left: 8px;
+
+        .allergen {
+          align-items: center;
+          margin-bottom: 16px;
+
+          img {
+            width: 2.8em;
+            margin-right: 8px;
+          }
+
+          .name {
+            font-size: 1.2em;
+          }
+        }
+      }
+
+      .liquids {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-grow: 1;
+        margin-left: 8px;
+
+        .liquid {
+          label {
+            margin-left: 8px;
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+
+    .details-buttons {
+      margin-left: 64px;
+      button {
+        font-size: 1.5em;
+        padding: 16px;
+        height: 50%;
+
+        i {
+          margin-right: 8px !important;
         }
       }
     }

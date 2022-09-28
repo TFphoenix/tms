@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require("path");
 
-function getBreakfastData() {
+exports.getBreakfastData = () => {
     return new Promise((resolve, reject) => {
         const ingredientsPromise = fs.promises.readFile(path.resolve(__dirname, './ingredients.json'));
         const breakfastPromise = fs.promises.readFile(path.resolve(__dirname, './breakfast.json'));
@@ -23,8 +23,19 @@ function getBreakfastData() {
                 reject(err);
             });
     });
-}
+};
 
-module.exports = {
-    getBreakfastData
-}
+exports.getLiquids = () => {
+    return new Promise((resolve, reject) => {
+        const liquidsPromise = fs.promises.readFile(path.resolve(__dirname, './liquids.json'));
+
+        Promise.resolve(liquidsPromise)
+            .then(values => {
+                let liquidsData = JSON.parse(values);
+                return resolve(liquidsData);
+            })
+            .catch(err => {
+                reject(err);
+            });
+    });
+};

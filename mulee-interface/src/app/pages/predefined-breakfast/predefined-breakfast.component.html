@@ -16,7 +16,11 @@
 
       <div class="art">
         <img
-          [src]="'../../../assets/breakfast/cereals' + (idx + 1) + '.png'"
+          [src]="
+            '../../../assets/breakfast/' +
+            (breakfast?.name ?? 'Healthy Mix') +
+            '.png'
+          "
           alt=""
         />
       </div>
@@ -35,10 +39,17 @@
 <jw-modal id="details-modal">
   <!-- Information Row -->
   <div class="information-row flex-row">
-    <img class="breakfast-image" src="../../../assets/breakfast/cereals1.png" />
+    <img
+      class="breakfast-image"
+      [src]="
+        '../../../assets/breakfast/' +
+        (selectedOption?.name ?? 'Healthy Mix') +
+        '.png'
+      "
+    />
 
     <div class="flex-col">
-      <h1 class="breakfast-title">HEALTHY MIX</h1>
+      <h1 class="breakfast-title">{{ selectedOption?.name }}</h1>
       <div class="ingredients-icons flex-row">
         <div
           class="ingredient-icon flex-col"
@@ -77,17 +88,41 @@
     <!-- Allergens -->
     <div class="details-section flex-col">
       <h2 class="details-section-title">Allergens</h2>
+      <div class="allergens">
+        <div
+          *ngFor="let allergen of selectedOption?.allergens"
+          class="allergen flex-row"
+        >
+          <img [src]="'../../../assets/allergens/' + allergen + '.png'" />
+          <span class="name">{{ allergen }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- Milk Type -->
     <div class="details-section flex-col">
       <h2 class="details-section-title">Milk Type</h2>
+      <div class="liquids">
+        <div *ngFor="let liquid of liquids" class="liquid flex-row">
+          <input type="radio" [id]="liquid" name="fav_language" value="HTML" />
+          <label [for]="liquid">{{ liquid }}</label>
+        </div>
+      </div>
     </div>
 
     <!-- Buttons -->
-    <div class="flex-col">
-      <button (click)="closeModal('details-modal')">RETURN</button>
-      <button (click)="cancelModal('details-modal')">START</button>
+    <div class="details-buttons flex-col">
+      <button class="interactable-bright" (click)="closeModal('details-modal')">
+        <i class="fa fa-arrow-left"></i>
+        RETURN
+      </button>
+      <button
+        class="interactable-bright"
+        (click)="cancelModal('details-modal')"
+      >
+        <i class="fa fa-play"></i>
+        START
+      </button>
     </div>
   </div>
 </jw-modal>
