@@ -54,7 +54,7 @@ void prepareRecipe(String recipe_string) {
   parseRecipe(recipe_string);
   
   printActiveRecipe();
-  dispenseYogurt(500);
+  dispenseYogurt(5000);
   
   active_recipe_idx = 0;
 }

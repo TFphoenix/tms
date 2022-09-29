@@ -1,6 +1,7 @@
 const int YOGURT_SERVO_OPEN = 45;
 const int YOGURT_SERVO_CLOSED = 135;
 const int YOGURT_SERVO_DELAY = 500;
+const int YOGURT_PPUMP_DELAY = 3000;
 bool yogurt_servo_isopen = false;
 
 void initializeYogurtDispenser() {
@@ -12,10 +13,16 @@ void initializeYogurtDispenser() {
 }
 
 void dispenseYogurt(int time) {
-  // digitalWrite(motor_yogurt_pump, HIGH);
-  // servo.write(0);
-  // delay(2000);
   toggleYogurtServo();
+  delay(YOGURT_SERVO_DELAY);
+  digitalWrite(yogurt_motor_pump, HIGH);
+  delay(time);
+  digitalWrite(yogurt_motor_pump, LOW);
+  digitalWrite(yogurt_motor_ppump, HIGH);
+  delay(YOGURT_PPUMP_DELAY);
+  digitalWrite(yogurt_motor_ppump, LOW);
+  toggleYogurtServo();
+  delay(YOGURT_SERVO_DELAY);
 }
 
 void toggleYogurtServo() {
