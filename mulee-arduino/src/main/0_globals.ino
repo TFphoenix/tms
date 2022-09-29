@@ -1,3 +1,5 @@
+#include <Servo.h>
+
 const int X_Step = A0;
 const int X_Dir = A1;
 const int X_En = A2;
