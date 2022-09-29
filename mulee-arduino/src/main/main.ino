@@ -17,10 +17,10 @@ Command active_recipe[ACTIVE_RECIPE_SIZE];
 int active_recipe_idx = 0;
 
 // COMPONENTS                   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-Servo servo_yogurt;
-const int servo_yogurt_pin = 7
-const int motor_yogurt_pump = 9;
-const int motor_yogurt_ppump = 10;
+Servo yogurt_servo;
+const int yogurt_servo_pin = 7;
+const int yogurt_motor_pump = 9;
+const int yogurt_motor_ppump = 10;
 
 // You can test with:
 // d 0 500,d 1 500,d 2 500,
@@ -30,19 +30,31 @@ const int motor_yogurt_ppump = 10;
 
 // MAIN FUNCTIONS               <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 void setup() {
-  Serial.begin(9600);  // Initialise the serial port
+  // Initialise the serial port
+  Serial.begin(9600);
 
   // Initialize components
-  servo_yogurt.attach(servo_yogurt_pin);
-  pinMode(motor_yogurt_pump, OUTPUT);
-  pinMode(motor_yogurt_ppump, OUTPUT);
+  yogurt_servo.attach(yogurt_servo_pin);
+  pinMode(yogurt_motor_pump, OUTPUT);
+  pinMode(yogurt_motor_ppump, OUTPUT);
+
+  // Initialize dispensers
+  initializeYogurtDispenser();
 }
 
 void loop() {
   // If there is incoming data
   if (Serial.available() > 0) {
     String recipe_string = Serial.readStringUntil('\n');
-    parseRecipe(recipe_string);
-    printActiveRecipe();
+    prepareRecipe(recipe_string);
   }
+}
+
+void prepareRecipe(String recipe_string) {
+  parseRecipe(recipe_string);
+  
+  printActiveRecipe();
+  dispenseYogurt(500);
+  
+  active_recipe_idx = 0;
 }
