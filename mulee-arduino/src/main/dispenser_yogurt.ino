@@ -5,6 +5,12 @@ const int YOGURT_PPUMP_DELAY = 3000;
 bool yogurt_servo_isopen = false;
 
 void initializeYogurtDispenser() {
+  // Initialize component
+  yogurt_servo.attach(yogurt_servo_pin);
+  pinMode(yogurt_motor_pump, OUTPUT);
+  pinMode(yogurt_motor_ppump, OUTPUT);
+
+  // Set initial state
   digitalWrite(yogurt_motor_pump, LOW);
   digitalWrite(yogurt_motor_ppump, LOW);
   yogurt_servo.write(YOGURT_SERVO_CLOSED);

@@ -53,3 +53,30 @@ struct stepper g_stepper3 = { 62, 48, 46 };
 
 //struct stepper stepper1 = {38, 55, 54};  //X
 //struct stepper stepper2 = {56, 61, 60};  //
+
+
+
+// CONSTANTS                    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+const int ACTIVE_RECIPE_SIZE = 10;
+const char RECIPE_DELIMITER = ',';
+const char SLOT_DELIMITER = ' ';
+
+// TYPES                        <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+struct Command {
+  char slot_type;
+  int slot_index;
+  int time_ms;
+};
+
+// VARIABLES                    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Command active_recipe[ACTIVE_RECIPE_SIZE];
+int active_recipe_idx = 0;
+
+// COMPONENTS                   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Servo yogurt_servo;
+const int yogurt_servo_pin = 7;
+const int yogurt_motor_pump = 9;
+const int yogurt_motor_ppump = 10;
+
+
+
