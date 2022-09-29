@@ -90,7 +90,7 @@ function toArduinoCommandPredefined(arduinoData, breakfastData, breakfastName, b
     console.log(breakfastIngredients);
     // TODO: Generalize
     // Build breakfast command
-    let breakfastCommand = `${arduinoData.startSlot},`;
+    let breakfastCommand = '';
     breakfastIngredients.forEach(ingredient => {
         ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
         if (!ingredientSlot) {
@@ -102,7 +102,6 @@ function toArduinoCommandPredefined(arduinoData, breakfastData, breakfastName, b
         const ingredientTime = isSlotLiquid ? 2000 : 500;
         breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
     });
-    breakfastCommand += arduinoData.endSlot;
 
     return breakfastCommand;
 }
@@ -115,7 +114,7 @@ function toArduinoCommandCustomized(arduinoData, breakfastIngredients, breakfast
 
     // TODO: Generalize
     // Build breakfast command
-    let breakfastCommand = `${arduinoData.startSlot},`;
+    let breakfastCommand = '';
     breakfastIngredients.forEach(ingredient => {
         ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
         if (!ingredientSlot) {
@@ -127,7 +126,6 @@ function toArduinoCommandCustomized(arduinoData, breakfastIngredients, breakfast
         const ingredientTime = isSlotLiquid ? 2000 : ingredient.grams * 5;
         breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
     });
-    breakfastCommand += arduinoData.endSlot;
 
     return breakfastCommand;
 }

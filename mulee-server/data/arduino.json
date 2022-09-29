@@ -1,6 +1,4 @@
 {
-  "startSlot": "start",
-  "endSlot": "end",
   "slots": [
     { "type": "d", "index": "0", "content": "Classic Musli" },
     { "type": "d", "index": "1", "content": "Blueberries" },
