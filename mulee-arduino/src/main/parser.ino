@@ -29,3 +29,7 @@ void printActiveRecipe() {
   }
   Serial.println();
 }
+
+void resetActiveRecipe() {
+  active_recipe_idx = 0;
+}
