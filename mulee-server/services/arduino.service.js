@@ -1,21 +1,9 @@
-const { SerialPort } = require('serialport')
-const { ReadlineParser } = require('@serialport/parser-readline')
+const { SerialPort } = require('serialport');
+const { ReadlineParser } = require('@serialport/parser-readline');
 const { ARDUINO_PORT, ARDUINO_BAUD_RATE } = require("../config/general.config");
+const { logInfo, logError, logSuccess } = require("./logger.service");
 
-// Arduino logging
-function logError(message) {
-    console.log('\x1b[31m[arduino] %s\x1b[0m', `Error: ${message}`);
-}
-
-function logInfo(message) {
-    console.log('\x1b[34m[arduino] %s\x1b[0m', message);
-}
-
-function logSuccess(message) {
-    console.log('\x1b[32m[arduino] %s\x1b[0m', message);
-}
-
-logInfo('Initializing Arduino service...');
+logInfo('arduino', 'Initializing Arduino service...');
 
 // Serial port definition
 const port = new SerialPort({
@@ -28,34 +16,34 @@ const parser = port.pipe(new ReadlineParser());
 
 // Read data handle
 parser.on("data", function (line) {
-    logInfo(line);
+    logInfo('arduino', line);
 });
 
 // Errors handle
 let lastError = undefined;
 port.on('error', function (err) {
-    logError(err.message);
+    logError('arduino', err.message);
     lastError = err;
 });
 
 // Open handle
 port.on('open', function (err) {
-    logSuccess('Arduino service opened');
+    logSuccess('arduino', 'Arduino service opened');
 });
 
 setTimeout(() => {
     if (!lastError)
-        logSuccess('Arduino service initialized');
+        logSuccess('arduino', 'Arduino service initialized');
 }, 3000);
 
 // Service functions
 exports.writeData = (data) => {
     port.write(`${data}\n`, function (err) {
         if (err) {
-            logError(err);
+            logError('arduino', err);
         }
     });
-    logInfo('Message sent');
+    logInfo('arduino', 'Message sent');
 };
 
 

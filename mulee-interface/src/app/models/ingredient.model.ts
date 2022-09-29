@@ -1,4 +1,5 @@
 export class IngredientValue {
+  //TODO: Use only Ingredient (add grams to it)
   name?: string;
   grams: number = 0;
 

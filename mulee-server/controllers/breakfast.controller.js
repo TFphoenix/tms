@@ -1,5 +1,6 @@
 const data = require("../data/data");
 const arduino = require("../services/arduino.service");
+const { logError, logWarning } = require("../services/logger.service");
 
 exports.predefinedBreakfastGetAll = (req, res) => {
     data.getPredefinedBreakfast()
@@ -19,13 +20,14 @@ exports.predefinedBreakfastPrepare = (req, res) => {
         liquid: req.body.liquid
     };
 
-    Promise.all([data.getArduino, data.getPredefinedBreakfast])
+    Promise.all([data.getArduino(), data.getPredefinedBreakfast()])
         .then(values => {
-            let arduinoCommand = toArduinoCommand(values[0], values[1], breakfast.name, breakfast.liquid);
+            let arduinoCommand = toArduinoCommandPredefined(values[0], values[1], breakfast.name, breakfast.liquid);
             arduino.writeData(arduinoCommand);
-            res.send(breakfast); // TEST
+            res.send({ breakfast, arduinoCommand }); // TEST
         })
         .catch(err => {
+            console.error(err);
             res.status(500).send({
                 message: err.message || "Unknown error occurred"
             });
@@ -40,11 +42,12 @@ exports.customizedBreakfastPrepare = (req, res) => {
 
     data.getArduino()
         .then(value => {
-            let arduinoCommand = toArduinoCommand(value, breakfast.ingredients, breakfast.liquid);
+            let arduinoCommand = toArduinoCommandCustomized(value, breakfast.ingredients, breakfast.liquid);
             arduino.writeData(arduinoCommand);
-            res.send(breakfast); // TEST
+            res.send({ breakfast, arduinoCommand }); // TEST
         })
         .catch(err => {
+            console.error(err);
             res.status(500).send({
                 message: err.message || "Unknown error occurred"
             });
@@ -75,12 +78,56 @@ exports.ingredientsGetAll = (req, res) => {
         });
 }
 
-function toArduinoCommand(arduinoData, breakfastData, breakfastName, breakfastLiquid) {
-    // TODO: Implement Arduino Command Conversion function
-    return "Test Data";
+// For predefined breakfast (hardcoded grams)
+function toArduinoCommandPredefined(arduinoData, breakfastData, breakfastName, breakfastLiquid) {
+    const breakfastIngredients = breakfastData.find(breakfast => breakfast.name === breakfastName)?.ingredients;
+
+    // Get breakfast ingredients
+    if (!breakfastIngredients || breakfastIngredients.length === 0) {
+        logError("(toArduinoCommand - PREDEFINED)", "Breakfast ingredients undefined or empty");
+    }
+
+    console.log(breakfastIngredients);
+    // TODO: Generalize
+    // Build breakfast command
+    let breakfastCommand = `${arduinoData.startSlot},`;
+    breakfastIngredients.forEach(ingredient => {
+        ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
+        if (!ingredientSlot) {
+            logWarning("Ingredient not found", ingredient.name);
+            return;
+        }
+
+        const isSlotLiquid = ingredientSlot.type === "l" || ingredientSlot.type === "y";
+        const ingredientTime = isSlotLiquid ? 2000 : 500;
+        breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
+    });
+    breakfastCommand += arduinoData.endSlot;
+
+    return breakfastCommand;
 }
 
-function toArduinoCommand(arduinoData, breakfastIngredients, breakfastLiquid) {
-    // TODO: Implement Arduino Command Conversion function
-    return "Test Data";
+// For customized breakfast (calculated grams)
+function toArduinoCommandCustomized(arduinoData, breakfastIngredients, breakfastLiquid) {
+    if (!breakfastIngredients || breakfastIngredients.length === 0) {
+        logError("(toArduinoCommand - CUSTOMIZED)", "Breakfast ingredients undefined or empty");
+    }
+
+    // TODO: Generalize
+    // Build breakfast command
+    let breakfastCommand = `${arduinoData.startSlot},`;
+    breakfastIngredients.forEach(ingredient => {
+        ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
+        if (!ingredientSlot) {
+            logWarning("Ingredient not found", ingredient.name);
+            return;
+        }
+
+        const isSlotLiquid = ingredientSlot.type === "l" || ingredientSlot.type === "y";
+        const ingredientTime = isSlotLiquid ? 2000 : ingredient.grams * 5;
+        breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
+    });
+    breakfastCommand += arduinoData.endSlot;
+
+    return breakfastCommand;
 }
