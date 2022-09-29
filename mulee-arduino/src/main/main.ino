@@ -52,8 +52,10 @@ void loop() {
 
 void prepareRecipe(String recipe_string) {
   parseRecipe(recipe_string);
-  
   printActiveRecipe();
+
+  // TODO: Iterate recipe commands and execute them one by one
+  
   dispenseYogurt(5000);
   
   active_recipe_idx = 0;
