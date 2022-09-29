@@ -1,3 +1,12 @@
+void setup_steppers() {
+  for(int i; i < 4; i ++) {
+    pinMode(dispensers[i].step_pin, OUTPUT); 
+    pinMode(dispensers[i].direction_pin, OUTPUT);
+    pinMode(dispensers[i].enable_pin, OUTPUT);
+  }
+}
+
+
 
 void pulse(byte pin, int delay, int count) { 
   for(int i = 0; i < count; i ++) {

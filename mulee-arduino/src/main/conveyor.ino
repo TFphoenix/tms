@@ -43,6 +43,13 @@ void stopAll() {
 }
 
 void initalize_gantry() {
+  pinMode(G_ENABLE_PIN, OUTPUT); 
+  pinMode(G_DIR_PIN, OUTPUT); 
+  pinMode(G_STEP_PIN, OUTPUT); 
+
+  pinMode(xmax, INPUT);
+  pinMode(xmin, INPUT); 
+
   noInterrupts(); 
 
   Serial.println("Starting Calibration");
