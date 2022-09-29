@@ -1,6 +1,10 @@
 export class IngredientValue {
   name?: string;
   grams: number = 0;
+
+  constructor(ingredient: Ingredient) {
+    this.name = ingredient.name;
+  }
 }
 
 export class Ingredient {

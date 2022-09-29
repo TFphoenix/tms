@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Ingredient } from 'src/app/models/ingredient.model';
+import { Ingredient, IngredientValue } from 'src/app/models/ingredient.model';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api/api.service';
   styleUrls: ['./customize-breakfast.component.scss'],
 })
 export class CustomizeBreakfastComponent implements OnInit {
-  ingredients: Ingredient[] = [];
+  ingredients: IngredientValue[] = [];
   liquids: string[] = [];
   selectedLiquid?: string;
 
@@ -21,7 +21,10 @@ export class CustomizeBreakfastComponent implements OnInit {
   ngOnInit(): void {
     this._api.getIngredients().subscribe({
       next: (values) => {
-        this.ingredients = values;
+        this.ingredients = [];
+        values.forEach((value) => {
+          this.ingredients.push(new IngredientValue(value));
+        });
       },
       error: (err) => {
         this._toastr.error(err.message, 'Error fetching ingredients');
@@ -39,7 +42,31 @@ export class CustomizeBreakfastComponent implements OnInit {
     });
   }
 
+  rangeValueChanged(value: number, name?: string) {
+    let ingredient = this.ingredients.find(
+      (ingredient) => ingredient.name === name
+    );
+
+    if (ingredient) {
+      ingredient.grams = value;
+    }
+  }
+
   prepareCustomizedBreakfast() {
-    // TODO: Get form data and POST
+    this._api
+      .postCustomizedBreakfast(this.ingredients, this.selectedLiquid ?? '')
+      .subscribe({
+        next: (values) => {
+          this._toastr.success(
+            'Preparation successfully started',
+            'Preparation Start'
+          );
+          console.log(values);
+        },
+        error: (err) => {
+          this._toastr.error('Preparation error occured', 'Preparation Error');
+          console.error(err);
+        },
+      });
   }
 }

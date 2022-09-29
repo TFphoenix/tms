@@ -13,7 +13,9 @@
         {{ ingredient.name }}
       </label>
       <!-- <input type="range" [id]="ingredient.name" [value]="ingredient.name" /> -->
-      <app-range-selector></app-range-selector>
+      <app-range-selector
+        (rangeValueChangedEvent)="rangeValueChanged($event, ingredient.name)"
+      ></app-range-selector>
     </div>
   </div>
 
@@ -33,11 +35,7 @@
   </div>
 
   <!-- Buttons -->
-  <button
-    type="submit"
-    routerLink="/breakfast/predefined"
-    class="action-button interactable-bright"
-  >
+  <button type="submit" class="action-button interactable-bright">
     <i class="fa fa-spoon mr-8"></i>PREPARE
   </button>
   <button
