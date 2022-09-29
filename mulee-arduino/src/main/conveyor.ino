@@ -11,9 +11,14 @@ int gantrySteps = 0;
 
 int position = -1; 
 
+void setup_gantry() {
+  attachInterrupt(digitalPinToInterrupt(xmin), stopAll, CHANGE); 
+  attachInterrupt(digitalPinToInterrupt(xmax), stopAll, CHANGE);
+}
+
 void moveTo(int pos, int speed) {
 
-  if(pos < 0 || pos > gantrySteps) {
+  if(pos < 0 || pos > gantrySteps - 10) {
     Serial.println("Move request outside valid range. Are you initialzed?");
   }
 
