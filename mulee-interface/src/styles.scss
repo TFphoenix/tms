@@ -255,6 +255,7 @@ button.icon {
 
 // Interactable Animation
 .interactable-bright {
+  color: $primary-1;
   background-color: $white;
   transition-duration: 0.2s;
   border: 1px solid $primary-5;

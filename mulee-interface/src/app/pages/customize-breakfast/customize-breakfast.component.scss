@@ -1,6 +1,56 @@
+@import "src/parameters.scss";
+
+.customize-form {
+  color: $primary-1;
+}
+
 .action-button {
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: bold;
-  width: 240px;
-  height: 60px;
+  width: 320px;
+  height: 80px;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 32px;
+
+  .ingredient {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 32px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 32px;
+      font-size: 1.5em;
+
+      img {
+        margin-bottom: 8px;
+        width: 80px;
+      }
+    }
+  }
+}
+
+.liquids {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 32px;
+
+  .liquid {
+    margin: 8px 0;
+
+    label {
+      margin-left: 8px;
+      font-size: 1.5em;
+    }
+  }
 }

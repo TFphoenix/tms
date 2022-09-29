@@ -106,8 +106,8 @@
         <div *ngFor="let liquid of liquids" class="liquid flex-row">
           <input
             type="radio"
+            name="selected-liquid"
             [id]="liquid"
-            name="fav_language"
             [value]="liquid"
             [(ngModel)]="selectedLiquid"
           />

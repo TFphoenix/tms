@@ -1,14 +1,35 @@
-<form class="flex-col-center" (ngSubmit)="prepareCustomizedBreakfast()">
+<form
+  class="customize-form flex-col-center"
+  (ngSubmit)="prepareCustomizedBreakfast()"
+>
   <!-- Ingredients -->
   <h1>Choose preferred ingredients</h1>
-  <div *ngFor="let ingredient of ingredients">
-    {{ ingredient.name }}
+  <div class="ingredients">
+    <div class="ingredient" *ngFor="let ingredient of ingredients">
+      <label [for]="ingredient.name">
+        <img
+          [src]="'../../../assets/ingredients/' + ingredient.name + '.png'"
+        />
+        {{ ingredient.name }}
+      </label>
+      <!-- <input type="range" [id]="ingredient.name" [value]="ingredient.name" /> -->
+      <app-range-selector></app-range-selector>
+    </div>
   </div>
 
   <!-- Liquids -->
-  <h1>Choose preferred milk</h1>
-  <div *ngFor="let liquid of liquids">
-    {{ liquid }}
+  <h1 class="mb-8">Choose preferred milk</h1>
+  <div class="liquids">
+    <div class="liquid" *ngFor="let liquid of liquids">
+      <input
+        type="radio"
+        [id]="liquid"
+        name="selected-liquid"
+        [value]="liquid"
+        [(ngModel)]="selectedLiquid"
+      />
+      <label [for]="liquid">{{ liquid }}</label>
+    </div>
   </div>
 
   <!-- Buttons -->

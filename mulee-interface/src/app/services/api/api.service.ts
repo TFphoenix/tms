@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Breakfast } from 'src/app/models/breakfast.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Ingredient } from 'src/app/models/ingredient.model';
+import { Ingredient, IngredientValue } from 'src/app/models/ingredient.model';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +36,14 @@ export class ApiService {
   postPredefinedBreakfast(breakfast: Breakfast, liquid: string) {
     return this._http.post(`${this._breakfast}/predefined`, {
       name: breakfast.name,
+      liquid: liquid,
+    });
+  }
+
+  // Start preparing predefined Breakfast Recipe
+  postCustomizedBreakfast(ingredients: IngredientValue[], liquid: string) {
+    return this._http.post(`${this._breakfast}/customized`, {
+      ingredients: ingredients,
       liquid: liquid,
     });
   }

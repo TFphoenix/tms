@@ -15,8 +15,8 @@ module.exports = app => {
     // Get all ingredients
     router.get("/ingredients", breakfast.ingredientsGetAll);
 
-    // Create a customized breakfast recipe
-    // router.post("/customized", progress.create); // TODO
+    // Start preparing customized recipe
+    router.post("/customized", breakfast.customizedBreakfastPrepare);
 
     app.use('/breakfast', router);
 }

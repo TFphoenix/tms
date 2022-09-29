@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api/api.service';
 export class CustomizeBreakfastComponent implements OnInit {
   ingredients: Ingredient[] = [];
   liquids: string[] = [];
+  selectedLiquid?: string;
 
   constructor(
     private readonly _api: ApiService,
@@ -30,6 +31,7 @@ export class CustomizeBreakfastComponent implements OnInit {
     this._api.getLiquids().subscribe({
       next: (values) => {
         this.liquids = values;
+        this.selectedLiquid = this.liquids[0];
       },
       error: (err) => {
         this._toastr.error(err.message, 'Error fetching liquids');
@@ -37,5 +39,7 @@ export class CustomizeBreakfastComponent implements OnInit {
     });
   }
 
-  prepareCustomizedBreakfast() {}
+  prepareCustomizedBreakfast() {
+    // TODO: Get form data and POST
+  }
 }
