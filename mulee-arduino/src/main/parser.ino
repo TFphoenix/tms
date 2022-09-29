@@ -16,20 +16,3 @@ void parseRecipe(String recipe_string) {
     recipe_string = recipe_string.substring(recipe_delimiter_idx + 1, recipe_string.length());
   }
 }
-
-void printActiveRecipe() {
-  Serial.print("Active recipe: ");
-  for (int i = 0; i < active_recipe_idx; ++i) {
-    Serial.print(active_recipe[i].slot_type);
-    Serial.print(active_recipe[i].slot_index);
-    Serial.print(active_recipe[i].time_ms);
-
-    if (i != active_recipe_idx - 1)
-      Serial.print(", ");
-  }
-  Serial.println();
-}
-
-void resetActiveRecipe() {
-  active_recipe_idx = 0;
-}

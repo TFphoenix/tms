@@ -80,7 +80,4 @@ const int yogurt_servo_pin = 7;
 const int yogurt_motor_pump = 9;
 const int yogurt_motor_ppump = 10;
 
-const int milk_motor_pump = 11;
-
-
-
+const int milk_motor_pump[2] = { 16, 17 };
