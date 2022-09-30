@@ -1,3 +1,5 @@
+const int MILK_PUMP_DELAY = 5000;
+
 void initializeMilkDispenser() {
   // Initialize component
   pinMode(milk_motor_pump[0], OUTPUT);
@@ -12,4 +14,5 @@ void dispenseMilk(int time, int pump) {
   digitalWrite(milk_motor_pump[pump], HIGH);
   delay(time);
   digitalWrite(milk_motor_pump[pump], LOW);
+  delay(MILK_PUMP_DELAY);
 }

@@ -1,3 +1,6 @@
+const int POSITION_START = 50;
+const int POSITION_END = 10400;
+
 void printActiveRecipe() {
   Serial.print("Active recipe: ");
   for (int i = 0; i < active_recipe_idx; ++i) {
@@ -13,6 +16,7 @@ void printActiveRecipe() {
 
 void resetActiveRecipe() {
   active_recipe_idx = 0;
+  moveTo(POSITION_START, 400);
 }
 
 void prepareActiveRecipe() {
@@ -50,4 +54,7 @@ void prepareActiveRecipe() {
 
     delay(2000);  // Delay between dispensing ingredients
   }
+
+  moveTo(POSITION_END, 400);
+  delay(40000); // Delay at the end of the preparation
 }
