@@ -40,6 +40,15 @@ exports.customizedBreakfastPrepare = (req, res) => {
         liquid: req.body.liquid
     };
 
+    for (let index = 0; index < breakfast.ingredients.length; index++) {
+        if (breakfast.ingredients[index].grams === 0) {
+            breakfast.ingredients.splice(index, 1);
+            index--;
+        }
+    }
+
+    console.log(breakfast);
+
     data.getArduino()
         .then(value => {
             let arduinoCommand = toArduinoCommandCustomized(value, breakfast.ingredients, breakfast.liquid);
@@ -120,7 +129,7 @@ function toArduinoCommandCustomized(arduinoData, breakfastIngredients, breakfast
     }
 
     // TODO: Generalize
-    // Build breakfast command
+    // Build breakfast command (ingredients)
     let breakfastCommand = '';
     breakfastIngredients.forEach(ingredient => {
         ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
@@ -133,6 +142,14 @@ function toArduinoCommandCustomized(arduinoData, breakfastIngredients, breakfast
         const ingredientTime = isSlotLiquid ? 2000 : ingredient.grams * 5;
         breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
     });
+
+    // Build breakfast command (liquids)
+    liquidSlot = arduinoData.slots.find(a => a.content === breakfastLiquid);
+    if (!ingredientSlot) {
+        logWarning("Liquid not found", breakfastLiquid);
+        return;
+    }
+    breakfastCommand += `${liquidSlot.type} ${liquidSlot.index} 3000,`; //TODO: Remove hardcode
 
     return breakfastCommand;
 }
