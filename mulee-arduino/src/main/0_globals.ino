@@ -1,12 +1,12 @@
 #include <Servo.h>
 
-const int X_Step = A0;
-const int X_Dir = A1;
-const int X_En = A2;
+const int X_Step = 54;  //Correct pins for all 
+const int X_Dir = 55;
+const int X_En = 38;
 
-const int Y_Step = A6;
-const int Y_Dir = A7;
-const int Y_En = A8;
+const int Y_Step = 60;
+const int Y_Dir = 61;
+const int Y_En = 56;
 
 const int Z_Step = 46;
 const int Z_Dir = 48;

@@ -6,9 +6,19 @@ void setup_steppers() {
   }
 
   // TEST:
-  // move(dispensers[0], 1, 5000, 1000);
+  // 
 }
 
+void test_steppers() {
+  Serial.println("Dispenser 0");
+  move(dispensers[0], 1, 5000, 1000);
+  Serial.println("Dispenser 1");
+  move(dispensers[1], 1, 5000, 1000);
+  Serial.println("Dispenser 2");
+  move(dispensers[2], 1, 5000, 1000);
+  Serial.println("Dispenser 3");
+  move(dispensers[3], 1, 5000, 1000);
+}
 
 
 void pulse(byte pin, int delay, int count) {
