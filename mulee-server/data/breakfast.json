@@ -1,42 +1,42 @@
 [
   {
     "name": "Healthy Mix",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Corn Flakes", "Fruit Musli"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Simplicity Mix",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Oats"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Fruity Loop",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Fruit Musli"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Cinni Ultra",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Corn Flakes", "Chocolate Musli"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Choco Bowl",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Chocolate Musli"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Sweet Treat",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Fruit Musli", "Chocolate Musli"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Power Mix",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Oats", "Corn Flakes"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   },
   {
     "name": "Active Day Mix",
-    "ingredients": ["Classic Musli", "Blueberries", "Cranberries"],
+    "ingredients": ["Corn Flakes"],
     "allergens": ["Gluten", "Milk", "Peanuts"]
   }
 ]

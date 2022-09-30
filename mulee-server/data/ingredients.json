@@ -1,35 +1,47 @@
 [
   {
-    "name": "Blueberries",
-    "calories": 57,
+    "name": "Oats",
+    "calories": 372,
     "nutritionalValues": [
-      { "name": "Protein", "percentage": 0.007 },
-      { "name": "Carbs", "percentage": 0.145 },
-      { "name": "Sugar", "percentage": 0.1 },
-      { "name": "Fiber", "percentage": 0.024 },
-      { "name": "Fat", "percentage": 0.003 }
+      { "name": "Protein", "percentage": 0.27 },
+      { "name": "Carbs", "percentage": 0.23 },
+      { "name": "Sugar", "percentage": 0.007 },
+      { "name": "Fiber", "percentage": 0.006 },
+      { "name": "Fat", "percentage": 0.1 }
     ]
   },
   {
-    "name": "Cranberries",
-    "calories": 46,
+    "name": "Chocolate Musli",
+    "calories": 441,
     "nutritionalValues": [
-      { "name": "Protein", "percentage": 0.004 },
-      { "name": "Carbs", "percentage": 0.122 },
-      { "name": "Sugar", "percentage": 0.04 },
-      { "name": "Fiber", "percentage": 0.046 },
-      { "name": "Fat", "percentage": 0.001 }
+      { "name": "Protein", "percentage": 0.2 },
+      { "name": "Carbs", "percentage": 0.23 },
+      { "name": "Sugar", "percentage": 0.22 },
+      { "name": "Fiber", "percentage": 0.12 },
+      { "name": "Fat", "percentage": 0.22 }
+    ]
+  },
+
+  {
+    "name": "Corn Flakes",
+    "calories": 383,
+    "nutritionalValues": [
+      { "name": "Protein", "percentage": 0.15 },
+      { "name": "Carbs", "percentage": 0.33 },
+      { "name": "Sugar", "percentage": 0.03 },
+      { "name": "Fiber", "percentage": 0.05 },
+      { "name": "Fat", "percentage": 0.006 }
     ]
   },
   {
-    "name": "Classic Musli",
-    "calories": 413.3,
+    "name": "Fruit Musli",
+    "calories": 333,
     "nutritionalValues": [
-      { "name": "Protein", "percentage": 0.12 },
-      { "name": "Carbs", "percentage": 0.578 },
-      { "name": "Sugar", "percentage": 0.16 },
-      { "name": "Fiber", "percentage": 0.091 },
-      { "name": "Fat", "percentage": 0.131 }
+      { "name": "Protein", "percentage": 0.074 },
+      { "name": "Carbs", "percentage": 0.65 },
+      { "name": "Sugar", "percentage": 0.29 },
+      { "name": "Fiber", "percentage": 0.13 },
+      { "name": "Fat", "percentage": 0.027 }
     ]
   }
 ]

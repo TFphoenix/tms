@@ -1,12 +1,12 @@
 {
   "slots": [
-    { "type": "d", "index": "0", "content": "Classic Musli" },
-    { "type": "d", "index": "1", "content": "Blueberries" },
-    { "type": "d", "index": "2", "content": "Cranberries" },
-    { "type": "d", "index": "3", "content": "" },
+    { "type": "d", "index": "0", "content": "Oats" },
+    { "type": "d", "index": "1", "content": "Chocolate Musli" },
+    { "type": "d", "index": "2", "content": "Corn Flakes" },
+    { "type": "d", "index": "3", "content": "Fruit Musli" },
     { "type": "l", "index": "0", "content": "Whole Milk" },
-    { "type": "l", "index": "1", "content": "Soy Milk" },
-    { "type": "l", "index": "2", "content": "Lactose Free Milk" },
-    { "type": "y", "index": "0", "content": "Yogurt" }
+    { "type": "l", "index": "1", "content": "Oat Milk" },
+    { "type": "l", "index": "2", "content": "" },
+    { "type": "y", "index": "0", "content": "" }
   ]
 }

@@ -1,0 +1,33 @@
+{
+"name": "Blueberries",
+"calories": 57,
+"nutritionalValues": [
+    { "name": "Protein", "percentage": 0.007 },
+    { "name": "Carbs", "percentage": 0.145 },
+    { "name": "Sugar", "percentage": 0.1 },
+    { "name": "Fiber", "percentage": 0.024 },
+    { "name": "Fat", "percentage": 0.003 }
+]
+},
+{
+"name": "Cranberries",
+"calories": 46,
+"nutritionalValues": [
+    { "name": "Protein", "percentage": 0.004 },
+    { "name": "Carbs", "percentage": 0.122 },
+    { "name": "Sugar", "percentage": 0.04 },
+    { "name": "Fiber", "percentage": 0.046 },
+    { "name": "Fat", "percentage": 0.001 }
+]
+},
+{
+"name": "Classic Musli",
+"calories": 413.3,
+"nutritionalValues": [
+    { "name": "Protein", "percentage": 0.12 },
+    { "name": "Carbs", "percentage": 0.578 },
+    { "name": "Sugar", "percentage": 0.16 },
+    { "name": "Fiber", "percentage": 0.091 },
+    { "name": "Fat", "percentage": 0.131 }
+]
+},
