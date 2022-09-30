@@ -59,9 +59,9 @@ void initalize_gantry() {
 
 
   while (xminreading == limitNominal && xmaxreading == limitNominal) {
-    delayMicroseconds(500);
+    delayMicroseconds(400);
     digitalWrite(G_STEP_PIN, HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(400);
     digitalWrite(G_STEP_PIN, LOW);
 
     xminreading = digitalRead(xmin);
@@ -80,7 +80,8 @@ void initalize_gantry() {
     Serial.println("Something is wrong with the limit switches");
   }
 
-  digitalWrite(G_DIR_PIN, !stepDirection);
+  // digitalWrite(G_DIR_PIN, !stepDirection);
+  digitalWrite(G_DIR_PIN, HIGH);
 
   pulse(G_STEP_PIN, 2000, 50);
 
@@ -93,9 +94,9 @@ void initalize_gantry() {
 
 
   while (xminreading == limitNominal && xmaxreading == limitNominal) {
-    delayMicroseconds(500);
+    delayMicroseconds(400);
     digitalWrite(G_STEP_PIN, HIGH);
-    delayMicroseconds(500);
+    delayMicroseconds(400);
     digitalWrite(G_STEP_PIN, LOW);
 
     xminreading = digitalRead(xmin);
@@ -110,7 +111,8 @@ void initalize_gantry() {
   Serial.println(gantrySteps);
   Serial.flush();
 
-  digitalWrite(G_DIR_PIN, stepDirection);
+  // digitalWrite(G_DIR_PIN, stepDirection);
+  digitalWrite(G_DIR_PIN, LOW);
   pulse(G_STEP_PIN, fastMovedelay, gantrySteps - 10);
 
   Serial.print("Moved Back a little");

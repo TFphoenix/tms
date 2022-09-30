@@ -7,7 +7,7 @@ struct dispenser_parameters {
   int position;
 };  //dispenser parameters
 
-struct dispenser_parameters dsp_prm[] = { { 500, 500, 1700 }, { 500, 500, 2865 }, { 500, 500, 4030 }, { 500, 500, 5195 } };
+struct dispenser_parameters dsp_prm[] = { { 500, 500, 1800 }, { 500, 500, 2965 }, { 500, 500, 4155 }, { 500, 500, 5335 } };
 
 
 
