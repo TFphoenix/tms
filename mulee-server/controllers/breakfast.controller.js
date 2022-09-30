@@ -87,9 +87,8 @@ function toArduinoCommandPredefined(arduinoData, breakfastData, breakfastName, b
         logError("(toArduinoCommand - PREDEFINED)", "Breakfast ingredients undefined or empty");
     }
 
-    console.log(breakfastIngredients);
     // TODO: Generalize
-    // Build breakfast command
+    // Build breakfast command (ingredients)
     let breakfastCommand = '';
     breakfastIngredients.forEach(ingredient => {
         ingredientSlot = arduinoData.slots.find(a => a.content === ingredient.name);
@@ -102,6 +101,14 @@ function toArduinoCommandPredefined(arduinoData, breakfastData, breakfastName, b
         const ingredientTime = isSlotLiquid ? 2000 : 500;
         breakfastCommand += `${ingredientSlot.type} ${ingredientSlot.index} ${ingredientTime},`;
     });
+
+    // Build breakfast command (liquids)
+    liquidSlot = arduinoData.slots.find(a => a.content === breakfastLiquid);
+    if (!ingredientSlot) {
+        logWarning("Liquid not found", breakfastLiquid);
+        return;
+    }
+    breakfastCommand += `${liquidSlot.type} ${liquidSlot.index} 3000,`; //TODO: Remove hardcode
 
     return breakfastCommand;
 }

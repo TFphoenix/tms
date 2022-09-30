@@ -19,6 +19,7 @@ void prepareActiveRecipe() {
   for (int i = 0; i < active_recipe_idx; ++i) {
     char slot_type = active_recipe[i].slot_type;
     int slot_index = active_recipe[i].slot_index;
+    int slot_time = active_recipe[i].time_ms;
     Serial.print("Dispensing: ");
     Serial.print(slot_type);
     Serial.print(' ');
@@ -27,10 +28,18 @@ void prepareActiveRecipe() {
 
     if (slot_type == 'l') {  // MILK
       moveTo(9000, 400);
-      dispenseMilk(5000, slot_index);
+      dispenseMilk(slot_time, slot_index);
 
     } else if (slot_type == 'd') {  // SOLID
-      dispense_solids(slot_index, 5);
+      // Hardcode
+      int slot_duration;
+      if (slot_index == 0) slot_duration = 10;
+      else if (slot_index == 1) slot_duration = 1;
+      else if (slot_index == 2) slot_duration = 1;
+      else if (slot_index == 3) slot_duration = 3;
+      else slot_duration = 3;
+
+      dispense_solids(slot_index, slot_duration);
 
     } else if (slot_type == 'y') {  // YOGURT
       return;                       // TODO
@@ -38,5 +47,7 @@ void prepareActiveRecipe() {
     } else {
       Serial.println("Error: Unknown command type in active_recipe/prepareActionRecipe");
     }
+
+    delay(2000);  // Delay between dispensing ingredients
   }
 }

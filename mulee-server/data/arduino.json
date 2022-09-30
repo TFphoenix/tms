@@ -1,7 +1,7 @@
 {
   "slots": [
-    { "type": "d", "index": "0", "content": "Oats" },
-    { "type": "d", "index": "1", "content": "Chocolate Musli" },
+    { "type": "d", "index": "0", "content": "Chocolate Musli" },
+    { "type": "d", "index": "1", "content": "Oats" },
     { "type": "d", "index": "2", "content": "Corn Flakes" },
     { "type": "d", "index": "3", "content": "Fruit Musli" },
     { "type": "l", "index": "0", "content": "Whole Milk" },
