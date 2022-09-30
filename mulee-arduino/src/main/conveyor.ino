@@ -81,7 +81,7 @@ void initalize_gantry() {
   }
 
   // digitalWrite(G_DIR_PIN, !stepDirection);
-  digitalWrite(G_DIR_PIN, HIGH);
+  digitalWrite(G_DIR_PIN, HIGH);  // TODO: Remove hardcode
 
   pulse(G_STEP_PIN, 2000, 50);
 
@@ -112,7 +112,7 @@ void initalize_gantry() {
   Serial.flush();
 
   // digitalWrite(G_DIR_PIN, stepDirection);
-  digitalWrite(G_DIR_PIN, LOW);
+  digitalWrite(G_DIR_PIN, LOW);  // TODO: Remove hardcode
   pulse(G_STEP_PIN, fastMovedelay, gantrySteps - 10);
 
   Serial.print("Moved Back a little");
