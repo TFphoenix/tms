@@ -17,7 +17,9 @@
 
 <img src="showcase/primary.jpg" width="400">
 
-This project was realised during the [Think.Make.Start](https://www.tms.tum.de/) course at [Technical University of Munich](https://www.tum.de/en/), during my 3rd semester of study. It was a very practical oriented course, in which teams of 4-6 people, with different specialisations, worked on realising a MVP (Minimal Viable Product), based on priorly executed user research, and create a business plan accordingly.<br><br>For this class, our team [Good Enough](#happy-mornings-co-team-goodenough) created the [Happy Mornings](#happy-mornings-co-team-goodenough) brand, and [μ-Lee](#μ-lee-the-muesli-machine-hardware) for the MVP (also called Bowl Bot), a musli maker machine, which lets you customize your ideal bowl of musli, either by choosing from recipe presets, or customizing your own recipe, based on given ingredients and liquid types (i.e. whole milk, soy milk, yogurt)
+This project was realised during the [Think.Make.Start](https://www.tms.tum.de/) course at [Technical University of Munich](https://www.tum.de/en/), during my 3rd semester of study. It was a very practically oriented course, in which teams of 4-6 people from different backgrounds were formed, in order to work together and realize a MVP (Minimal Viable Product), based on priorly executed user research, as well as create a business plan accordingly.
+
+For this class, our team [Good Enough](#happy-mornings-co-team-goodenough) created the [Happy Mornings](#happy-mornings-co-team-goodenough) brand, and [μ-Lee](#μ-lee-the-muesli-machine-hardware) for the MVP (also called Bowl Bot): a musli maker machine, that lets you create your ideal bowl of musli, by either choosing from recipe presets, or by customising your own recipe, based on given ingredients and liquid types (i.e. whole milk, soy milk, yogurt).
 
 > For a more visual representation you can watch:
 >
@@ -76,7 +78,7 @@ The User Interface is realised using an Angular WebApp, with 3 main views:
 
 ## TMS (Think.Make.Start) Batch #15
 
-TMS is a 2 weeks (full-time) class in which 50 students, coming from different specialisations, backgrounds, and study programs, work together in teams, on different roles, with the common goal of realising an inovative product in the current market. Some of the main aspects of TMS are: interdisciplinary learning, hands-on experience, design thinking methods, pitch training, and a demo-day that takes place in the final day of the class, and concludes the results.
+TMS is a 2-week (full-time) class in which 50 students, coming from different specialisations, backgrounds, and study programs, are assigned to teams and different roles within them, all working towards the common goal of realising an inovative product in the current market. Some of the main aspects of TMS are: interdisciplinary learning, hands-on experience, design thinking methods, pitch training, and a demo-day that takes place in the final day of the class, and concludes the project.
 
 In each team, there are 3 main roles, associated with each one of the students:
 1. **Problem Expert:** focuses on understanding of potentials,  
@@ -103,7 +105,7 @@ Our team was a pretty unusual one, consisting of 4 members, all having the same 
 
 ## From Prototype to Product
 
-During the class, we had numerous occasions to present our work to the coaches, receive feedback, change directions, and evolve on different paths. For our agile development, we followed a custom model, called The Petra Cycle Model, with one-day sprints, sustaining daily meetings, and reporting our progress using a custom tool.
+During the class, we had numerous occasions to present our work to the coaches, receive feedback, change directions, and evolve on different paths. For our agile development, we followed a custom model, called The [Petra Cycle Model](https://petra-prototyping.de/), with one-day sprints, sustaining daily meetings, and reporting our progress using a custom tool.
 
 Until reaching the MVP, we've gone through different prototyping stages, such as creating digital prototypes, designing cardboard prototypes, working on different component prototypes, etc.
 
